@@ -1,0 +1,13 @@
+<mat-card id='card' class='center'  (submit) = "$event.preventDefault()">
+  <form class='container'>
+    <mat-form-field>
+      <input class='fullwidth' matInput placeholder="Username" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input class='fullwidth' type="password" matInput placeholder="Password" required>
+    </mat-form-field>
+    
+  <button mat-button class='fullwidth' (click)="login(); ">Sign in</button> 
+  </form>
+</mat-card>
