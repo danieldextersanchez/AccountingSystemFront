@@ -12,11 +12,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegadminComponent } from './components/regadmin/regadmin.component';
 import { ParticlesModule } from 'angular-particle';
 
-
+import { NavbarService} from './services/navbar.service';
 
 const Routes : Routes = [
   {path : "", component: LoginComponent },
-  {path : "**", component: NotfoundComponent, data: {title : "aa"} }
+  {path : "regadmin", component : RegadminComponent},
+  {path : "**", component: NotfoundComponent }
 ];
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ const Routes : Routes = [
     RouterModule.forRoot(Routes),
     ParticlesModule
   ],
-  providers: [],
+  providers: [NavbarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

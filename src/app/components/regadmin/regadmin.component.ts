@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NavbarService } from '../../services/navbar.service';
 @Component({
   selector: 'app-regadmin',
   templateUrl: './regadmin.component.html',
@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegadminComponent implements OnInit {
 
-  constructor() { }
+  constructor(public nav: NavbarService) { }
 
   ngOnInit() {
+    this.nav.show();
   }
 
 }
