@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from "./material-module/material.module";
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule, Routes, Router  } from "@angular/router";
@@ -13,6 +13,8 @@ import { RegadminComponent } from './components/regadmin/regadmin.component';
 import { ParticlesModule } from 'angular-particle';
 
 import { NavbarService} from './services/navbar.service';
+
+import { HttpClientModule   } from '@angular/common/http';
 
 const Routes : Routes = [
   {path : "", component: LoginComponent },
@@ -31,7 +33,9 @@ const Routes : Routes = [
     BrowserModule,
     MaterialModule,
     RouterModule.forRoot(Routes),
-    ParticlesModule
+    ParticlesModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [NavbarService],
   bootstrap: [AppComponent]

@@ -1,3 +1,16 @@
-<div>
-
-</div>
+<mat-card class='center' id='regadmin'>
+    <form (submit)="$event.preventDefault();regadmin();" >
+        <div class='container '>
+                <mat-form-field>
+                    <input matInput placeholder="Username" autocomplete="off" required [(ngModel)] = "username" name="username">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type='password' placeholder="Password" required [(ngModel)] = "password" name="password">
+                </mat-form-field>
+                <mat-form-field>
+                      <input matInput type='password' placeholder="Confirm Password" required [(ngModel)] = "confirm" name="confirm">
+                  </mat-form-field>
+              </div>
+              <button mat-raised-button class='fullwidth'>REGISTER</button>
+            </form>
+</mat-card>

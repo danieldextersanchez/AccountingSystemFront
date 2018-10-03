@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatButtonModule,MatCardModule,MatFormFieldModule,MatInputModule} from '@angular/material';
+import {MatButtonModule,MatCardModule,MatFormFieldModule,MatInputModule,MatSidenavModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { FormControl, Validators } from '@angular/forms'; 
@@ -10,13 +10,14 @@ import { FormControl, Validators } from '@angular/forms';
     MatButtonModule,
     BrowserAnimationsModule,
     MatCardModule,MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSidenavModule
   ],
   exports: [
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,MatSidenavModule
   ],
   declarations: []
 })
