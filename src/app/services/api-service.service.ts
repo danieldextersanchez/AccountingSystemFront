@@ -9,14 +9,10 @@ export class ApiServiceService {
   constructor(private http : HttpClient) { }
 
   regadmin(data){
-    this.http.post(environment.apiurl+"admin",data,this._options).subscribe((data)=>{
-      console.log(data); 
-    })
+    return this.http.put(environment.apiurl+"admin",data,this._options);
   }
 
   listadmin(){
-    this.http.get(environment.apiurl+"admin").subscribe((data)=>{
-      console.log(data);
-    })
+    return this.http.get(environment.apiurl+"admin");
   }
 }

@@ -11,6 +11,8 @@ export class RegadminComponent implements OnInit {
   username : string;
   password : string;
   confirm : string;
+  email : string;
+  showSpinner : boolean = false;
   
   constructor(public nav: NavbarService, private api : ApiServiceService ) { }
 
@@ -19,8 +21,17 @@ export class RegadminComponent implements OnInit {
   }
 
   regadmin(){
-    if(this.password != this.confirm){
-      
+    let data = {
+      username : this.username,
+      password : this.password,
+      email : this.email
+    }
+    if(this.password == this.confirm){
+      this.showSpinner = true;
+      this.api.regadmin(data).subscribe((data)=>{
+        console.log(data);
+        this.showSpinner = false;
+      })
     }
     
   }

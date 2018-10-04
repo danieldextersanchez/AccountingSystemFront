@@ -1,8 +1,12 @@
 <mat-card class='center' id='regadmin'>
+    <app-loadspinner *ngIf="showSpinner" style='position:absolute;left:0;right:0'></app-loadspinner>
     <form (submit)="$event.preventDefault();regadmin();" >
         <div class='container '>
                 <mat-form-field>
                     <input matInput placeholder="Username" autocomplete="off" required [(ngModel)] = "username" name="username">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type='email' placeholder="Email" autocomplete="off" required [(ngModel)] = "email" name="email">
                 </mat-form-field>
                 <mat-form-field>
                     <input matInput type='password' placeholder="Password" required [(ngModel)] = "password" name="password">

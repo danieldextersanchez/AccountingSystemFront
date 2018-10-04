@@ -15,6 +15,7 @@ import { ParticlesModule } from 'angular-particle';
 import { NavbarService} from './services/navbar.service';
 
 import { HttpClientModule   } from '@angular/common/http';
+import { LoadspinnerComponent } from './components/loadspinner/loadspinner.component';
 
 const Routes : Routes = [
   {path : "", component: LoginComponent },
@@ -27,7 +28,8 @@ const Routes : Routes = [
     NavbarComponent,
     NotfoundComponent,
     LoginComponent,
-    RegadminComponent
+    RegadminComponent,
+    LoadspinnerComponent
   ],
   imports: [
     BrowserModule,
