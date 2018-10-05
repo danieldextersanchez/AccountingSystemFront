@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarService } from '../../services/navbar.service';
 import { ApiServiceService } from '../../services/api-service.service';
-import * as alertify from 'alertify.js';
+import  alertify from 'alertify.js';
 
 @Component({
   selector: 'app-regadmin',
@@ -19,6 +19,7 @@ export class RegadminComponent implements OnInit {
   constructor(public nav: NavbarService, private api : ApiServiceService ) { }
 
   ngOnInit() {
+    
     this.nav.show();
   }
 
@@ -29,11 +30,14 @@ export class RegadminComponent implements OnInit {
       email : this.email
     }
     if(this.password == this.confirm){
+      
       this.showSpinner = true;
       this.api.regadmin(data).subscribe((data)=>{
+        
         alertify.success(data);
         this.showSpinner = false;
       },(error)=>{
+        alertify.logPosition("top center");
         alertify.error(error.error.message);  
         this.showSpinner = false;
       })

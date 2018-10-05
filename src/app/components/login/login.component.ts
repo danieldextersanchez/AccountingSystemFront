@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment} from '../../../environments/environment';
 import { ApiServiceService } from '../../services/api-service.service';
+import  alertify from 'alertify.js';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,7 +23,9 @@ export class LoginComponent implements OnInit {
       "password" : this.password
     }
     this.api.login(data).subscribe((data)=>{
-      console.log(data);
+      alertify.success(data);
+    },(error)=>{
+      alertify.error(error.error.message);
     })  
   }
  
