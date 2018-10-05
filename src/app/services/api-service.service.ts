@@ -15,4 +15,8 @@ export class ApiServiceService {
   listadmin(){
     return this.http.get(environment.apiurl+"admin");
   }
+
+  login(data){
+     return this.http.post(environment.apiurl+"auth/login",data,this._options);
+  }
 }

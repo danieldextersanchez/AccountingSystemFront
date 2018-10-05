@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { environment} from '../../../environments/environment';
+import { ApiServiceService } from '../../services/api-service.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
+  username : string
+  password : string
+  constructor(private api : ApiServiceService) { }
 
   ngOnInit() {
 
@@ -14,10 +17,14 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    
+    let data = {
+      "username" : this.username,
+      "password" : this.password
+    }
+    this.api.login(data).subscribe((data)=>{
+      console.log(data);
+    })  
   }
-  mouseEnter(){
-    document.getElementById("card").style.transform = "display:none";
-  }
+ 
 
 }
