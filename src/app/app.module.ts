@@ -20,7 +20,7 @@ import { LoadspinnerComponent } from './components/loadspinner/loadspinner.compo
 const Routes : Routes = [
   {path : "", component: LoginComponent },
   {path : "regadmin", component : RegadminComponent},
-  {path : "**", component: NotfoundComponent }
+  {path : "**", component: NotfoundComponent },
 ];
 @NgModule({
   declarations: [

@@ -1,4 +1,5 @@
 <mat-card id='card' class='center'  (submit) = "$event.preventDefault()">
+  <app-loadspinner *ngIf="visible" class='spinner'></app-loadspinner>
   <form class='container'>
     <mat-form-field>
       <input class='fullwidth' name="Username" matInput placeholder="Username" autocomplete="off" required [(ngModel)] = "username">
