@@ -13,13 +13,16 @@ import { RegadminComponent } from './components/regadmin/regadmin.component';
 import { ParticlesModule } from 'angular-particle';
 
 import { NavbarService} from './services/navbar.service';
+import { AuthGuard } from './services/auth.guard';
 
 import { HttpClientModule   } from '@angular/common/http';
 import { LoadspinnerComponent } from './components/loadspinner/loadspinner.component';
+import { ProductsComponent } from './components/products/products.component';
 
 const Routes : Routes = [
   {path : "", component: LoginComponent },
-  {path : "regadmin", component : RegadminComponent},
+  {path : "regadmin", component : RegadminComponent, canActivate: [AuthGuard]},
+  {path : "products", component : ProductsComponent, canActivate: [AuthGuard]},
   {path : "**", component: NotfoundComponent },
 ];
 @NgModule({
@@ -29,7 +32,8 @@ const Routes : Routes = [
     NotfoundComponent,
     LoginComponent,
     RegadminComponent,
-    LoadspinnerComponent
+    LoadspinnerComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,7 @@ const Routes : Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [NavbarService],
+  providers: [NavbarService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

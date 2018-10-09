@@ -1,10 +1,26 @@
-<app-navbar></app-navbar>
-<router-outlet></router-outlet>
 
 
 
 
+<ng-sidebar-container style='height: 100vh'>
+ 
+        <!-- A sidebar -->
+        <ng-sidebar [(opened)]="_opened" [mode]="'push'">
+                <app-navbar></app-navbar>
+        </ng-sidebar>
+   
+        <!-- Page content -->
+        <div ng-sidebar-content >
+                <i class="material-icons pointer" (click)="_toggleSidebar()" *ngIf="navbar">
+                        menu
+                </i>
+          <router-outlet ></router-outlet>
+        </div>
+   
+</ng-sidebar-container>
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
 
 
 

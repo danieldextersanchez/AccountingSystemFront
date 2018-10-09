@@ -16,10 +16,9 @@ export class RegadminComponent implements OnInit {
   email : string;
   showSpinner : boolean = false;
   
-  constructor(public nav: NavbarService, private api : ApiServiceService ) { }
+  constructor(private api : ApiServiceService, private nav:NavbarService ) { }
 
   ngOnInit() {
-    
     this.nav.show();
   }
 
@@ -27,21 +26,20 @@ export class RegadminComponent implements OnInit {
     let data = {
       username : this.username,
       password : this.password,
+      password_confirmation : this.confirm,
       email : this.email
     }
-    if(this.password == this.confirm){
-      
+       
       this.showSpinner = true;
       this.api.regadmin(data).subscribe((data)=>{
-        
-        alertify.success(data);
+        alertify.success(data["message"]);
         this.showSpinner = false;
       },(error)=>{
         alertify.logPosition("top center");
-        alertify.error(error.error.message);  
+        alertify.error(this.api.errormessage(error));  
         this.showSpinner = false;
       })
-    }
+    
     
   }
 

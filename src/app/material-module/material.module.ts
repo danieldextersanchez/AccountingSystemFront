@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatButtonModule,MatCardModule,MatFormFieldModule,MatInputModule,MatSidenavModule} from '@angular/material';
+import {MatButtonModule,MatCardModule,MatFormFieldModule,MatInputModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
-import { FormControl, Validators } from '@angular/forms'; 
+import { SidebarModule } from 'ng-sidebar';
+// import { FormControl, Validators } from '@angular/forms'; 
 @NgModule({
   imports: [
     CommonModule,
@@ -11,13 +11,15 @@ import { FormControl, Validators } from '@angular/forms';
     BrowserAnimationsModule,
     MatCardModule,MatFormFieldModule,
     MatInputModule,
-    MatSidenavModule
+    SidebarModule
   ],
   exports: [
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule,MatSidenavModule
+    MatInputModule,
+    SidebarModule,
+    
   ],
   declarations: []
 })

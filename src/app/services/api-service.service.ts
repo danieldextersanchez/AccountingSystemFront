@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { token } from '../interface/api-interface';
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -24,7 +25,9 @@ export class ApiServiceService {
   }
 
   login(data){
-     return this.http.post(environment.apiurl+"auth/login",data,this._options);
+     return this.http.post(environment.apiurl+"auth/login",data,this._options).pipe(map(data =>{
+         this.storetoken(data["access_token"])
+     }));
   }
 
   logout(){
@@ -36,11 +39,21 @@ export class ApiServiceService {
     localStorage.setItem('token',token);
   }
 
-  gettoken(){
+  gettoken(){  
     return this.http.get(environment.apiurl+"auth/authuser",this.authorizeduser).toPromise().then(value=>{
       this.userinfo["info"] = value;
       return this.userinfo;
+    },error=>{
+      return false;
     });
+  }
+
+  isloggedin(){
+    if(localStorage.getItem("token") != undefined){
+      return true;
+    }else{
+      return false;
+    }
   }
 
   errormessage(error){

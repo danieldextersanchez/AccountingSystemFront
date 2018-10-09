@@ -1,8 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-body{
-    background-color:rgba(15, 15, 43, 0.856);
-}
+
 .center{
     margin-right:auto;
     margin-left:auto;
@@ -21,4 +19,7 @@ body{
 
 .spinner{
     position:absolute;left:0;right:0;
+}
+.pointer{
+    cursor: pointer;
 }
